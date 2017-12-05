@@ -1,5 +1,5 @@
 ARG node_version
-FROM node-agent as build
+FROM nodetestbench_agent as build
 FROM node:$node_version
 
 WORKDIR /usr/src/app

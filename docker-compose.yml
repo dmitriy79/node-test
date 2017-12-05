@@ -1,7 +1,9 @@
 version: "3"
 services:
-  # agent:
-  #     image: "node-agent"
+  agent:
+      build:
+          context: ../node-agent/node-agent-core/
+      # image: "node-agent"
   # express-4:
   #   build:
   #       context: .
@@ -9,7 +11,9 @@ services:
   #           node_version: 4
   #   ports:
   #     - "3004:3000"
-  express-6:
+  v6:
+    depends_on:
+        - "agent"
     build:
         context: .
         args:
