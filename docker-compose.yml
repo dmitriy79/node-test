@@ -2,36 +2,16 @@ version: "3"
 services:
   agent:
       build:
-          context: ../node-agent/node-agent-core/
-      # image: "node-agent"
-  # express-4:
-  #   build:
-  #       context: .
-  #       args:
-  #           node_version: 4
-  #   ports:
-  #     - "3004:3000"
-  v6:
+          context: ../node-agent/node-agent-core
+  app:
+    environment:
+        API_KEY: ${API_KEY}
+        TEAMSERVER_URI: ${TEAMSERVER_URI}
     depends_on:
         - "agent"
     build:
         context: .
         args:
-            node_version: 6
+          node_version: ${NODE_VERSION}
     ports:
-      - "3006:3000"
-      # - "9229:9229" // debugger
-  # express-8:
-  #   build:
-  #       context: .
-  #       args:
-  #           node_version: 8
-  #   ports:
-  #     - "3008:3000"
-  # express-latest:
-  #   build:
-  #       context: .
-  #       args:
-  #           node_version: latest
-  #   ports:
-  #     - "3000:3000"
+        - "${PORT}:3000"
