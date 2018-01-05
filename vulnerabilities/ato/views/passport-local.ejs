@@ -1,0 +1,21 @@
+<% include ../../../views/partials/header %>
+
+
+<h1 class="page-header">passport-local</h1>
+
+<div class="row">
+	<div class="col-xs-12 col-sm-6" style="padding-bottom: 30px;">
+		<form method="POST" action="/ato/passport-local/login">
+			<div class="form-group">
+				<!-- <label for="usename">username</label> -->
+				<input name="username" class="form-control" id="username" placeholder="username">
+				<br/>
+				<!-- <label for="password">password</label> -->
+				<input name="password" class="form-control" id="password" placeholder="password">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
+</div>
+
+<% include ../../../views/partials/footer %>

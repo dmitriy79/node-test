@@ -15,10 +15,13 @@
     "cookie-parser": "^1.4.3",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
+    "express-session": "^1.15.6",
     "hooker": "^0.2.3",
     "lodash": "^4.17.4",
     "mysql": "^2.10.2",
     "node-serialize": "0.0.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "pem": "^1.12.3"
   }
 }

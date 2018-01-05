@@ -2,6 +2,7 @@
 
 const start = Date.now();
 const express = require('express');
+const session = require('express-session');
 const bodyParser = require('body-parser');
 
 const http = require('http');
@@ -13,12 +14,17 @@ require('./vulnerabilities/static');
 const app = express();
 
 app.use('/assets', express.static('public'));
+app.use(session({
+	secret : 'b7a89e43-6958-4010-b380-92af92206ee7',
+	resave: true,
+	saveUninitialized: true }));
 //app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.set('views', __dirname+'/views');
 app.set('view engine', 'ejs');
 
+app.use('/ato', require('./vulnerabilities/ato')(app));
 app.use('/xss_test', require('./vulnerabilities/xss/'));
 app.use('/xss_objects', require('./vulnerabilities/xss/objects/'));
 app.use('/sqli', require('./vulnerabilities/sqli/'));
